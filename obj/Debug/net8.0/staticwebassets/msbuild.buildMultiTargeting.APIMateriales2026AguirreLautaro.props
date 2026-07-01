@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\APIMateriales2026AguirreLautaro.props" />
+</Project>

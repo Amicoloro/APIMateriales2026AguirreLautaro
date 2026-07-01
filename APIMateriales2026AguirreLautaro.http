@@ -1,0 +1,6 @@
+@APIMateriales2026AguirreLautaro_HostAddress = http://localhost:5114
+
+GET {{APIMateriales2026AguirreLautaro_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
