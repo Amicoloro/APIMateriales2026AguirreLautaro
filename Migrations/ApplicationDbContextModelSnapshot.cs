@@ -44,7 +44,41 @@ namespace APIMateriales2026AguirreLautaro.Migrations
 
                     b.HasKey("MaterialID");
 
+                    b.HasIndex("RubroID");
+
                     b.ToTable("Materiales");
+                });
+
+            modelBuilder.Entity("APIMateriales2026AguirreLautaro.Models.MaterialProducto", b =>
+                {
+                    b.Property<int>("MaterialProductoID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaterialProductoID"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaterialID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PrecioCostoUnitario")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductoID")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("SubTotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("MaterialProductoID");
+
+                    b.HasIndex("MaterialID");
+
+                    b.HasIndex("ProductoID");
+
+                    b.ToTable("MaterialesProductos");
                 });
 
             modelBuilder.Entity("APIMateriales2026AguirreLautaro.Models.Producto", b =>
@@ -55,7 +89,10 @@ namespace APIMateriales2026AguirreLautaro.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductoID"));
 
-                    b.Property<string>("Descrippcion")
+                    b.Property<decimal>("CostoTotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Eliminado")
@@ -286,6 +323,36 @@ namespace APIMateriales2026AguirreLautaro.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("APIMateriales2026AguirreLautaro.Models.Material", b =>
+                {
+                    b.HasOne("APIMateriales2026AguirreLautaro.Models.Rubro", "Rubro")
+                        .WithMany("Materiales")
+                        .HasForeignKey("RubroID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rubro");
+                });
+
+            modelBuilder.Entity("APIMateriales2026AguirreLautaro.Models.MaterialProducto", b =>
+                {
+                    b.HasOne("APIMateriales2026AguirreLautaro.Models.Material", "Material")
+                        .WithMany("Productos")
+                        .HasForeignKey("MaterialID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("APIMateriales2026AguirreLautaro.Models.Producto", "Producto")
+                        .WithMany("Materiales")
+                        .HasForeignKey("ProductoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Material");
+
+                    b.Navigation("Producto");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -335,6 +402,21 @@ namespace APIMateriales2026AguirreLautaro.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("APIMateriales2026AguirreLautaro.Models.Material", b =>
+                {
+                    b.Navigation("Productos");
+                });
+
+            modelBuilder.Entity("APIMateriales2026AguirreLautaro.Models.Producto", b =>
+                {
+                    b.Navigation("Materiales");
+                });
+
+            modelBuilder.Entity("APIMateriales2026AguirreLautaro.Models.Rubro", b =>
+                {
+                    b.Navigation("Materiales");
                 });
 #pragma warning restore 612, 618
         }

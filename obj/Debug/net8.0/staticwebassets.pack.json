@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\app.js",
+      "PackagePath": "staticwebassets\\app.js"
+    },
+    {
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\validaciones.js",
+      "PackagePath": "staticwebassets\\validaciones.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.APIMateriales2026AguirreLautaro.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.APIMateriales2026AguirreLautaro.props",
+      "PackagePath": "build\\APIMateriales2026AguirreLautaro.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.APIMateriales2026AguirreLautaro.props",
+      "PackagePath": "buildMultiTargeting\\APIMateriales2026AguirreLautaro.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.APIMateriales2026AguirreLautaro.props",
+      "PackagePath": "buildTransitive\\APIMateriales2026AguirreLautaro.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

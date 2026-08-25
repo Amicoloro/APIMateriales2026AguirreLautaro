@@ -1,11 +1,77 @@
 {
   "Version": 1,
-  "Hash": "g5ujTFcJRqkTHEpNQkiHbc153xNvXh2rbY8v7136adg=",
+  "Hash": "fce8t2/tlGztnHex9Me5bM7sAIGITYldupLT7fl0H/o=",
   "Source": "APIMateriales2026AguirreLautaro",
   "BasePath": "_content/APIMateriales2026AguirreLautaro",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "APIMateriales2026AguirreLautaro\\wwwroot",
+      "Source": "APIMateriales2026AguirreLautaro",
+      "ContentRoot": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\",
+      "BasePath": "_content/APIMateriales2026AguirreLautaro",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\app.js",
+      "SourceId": "APIMateriales2026AguirreLautaro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\",
+      "BasePath": "_content/APIMateriales2026AguirreLautaro",
+      "RelativePath": "app.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.js"
+    },
+    {
+      "Identity": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\index.html",
+      "SourceId": "APIMateriales2026AguirreLautaro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\",
+      "BasePath": "_content/APIMateriales2026AguirreLautaro",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\validaciones.js",
+      "SourceId": "APIMateriales2026AguirreLautaro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\",
+      "BasePath": "_content/APIMateriales2026AguirreLautaro",
+      "RelativePath": "validaciones.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\validaciones.js"
+    }
+  ]
 }

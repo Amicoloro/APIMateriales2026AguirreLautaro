@@ -6,8 +6,12 @@ public class Producto
 {
 [Key]
     public int ProductoID { get; set; }
-    public string? Descrippcion { get; set;}
+    public string? Descripcion { get; set;}
    
     public bool Eliminado { get; set; }
+    public decimal CostoTotal { get; set; }
+
+    public virtual ICollection<MaterialProducto>? Materiales { get; set; }
 
 }
+

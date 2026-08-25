@@ -137,3 +137,5 @@ C:\Users\lauti\OneDrive\Escritorio\APIMateriales2026AguirreLautaro\APIMateriales
 C:\Users\lauti\OneDrive\Escritorio\APIMateriales2026AguirreLautaro\APIMateriales2026AguirreLautaro\obj\Debug\net8.0\APIMateriales2026AguirreLautaro.pdb
 C:\Users\lauti\OneDrive\Escritorio\APIMateriales2026AguirreLautaro\APIMateriales2026AguirreLautaro\obj\Debug\net8.0\APIMateriales2026AguirreLautaro.genruntimeconfig.cache
 C:\Users\lauti\OneDrive\Escritorio\APIMateriales2026AguirreLautaro\APIMateriales2026AguirreLautaro\obj\Debug\net8.0\ref\APIMateriales2026AguirreLautaro.dll
+C:\Users\lauti\OneDrive\Escritorio\APIMateriales2026AguirreLautaro\APIMateriales2026AguirreLautaro\obj\Debug\net8.0\APIMateriales2026AguirreLautaro.sourcelink.json
+C:\Users\lauti\OneDrive\Escritorio\APIMateriales2026AguirreLautaro\APIMateriales2026AguirreLautaro\bin\Debug\net8.0\APIMateriales2026AguirreLautaro.staticwebassets.runtime.json

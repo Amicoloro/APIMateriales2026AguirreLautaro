@@ -8,5 +8,7 @@ public class Rubro
     public int RubroID { get; set; }
     public string? Descripcion { get; set;}
     public bool Eliminado { get; set; }
+    // Propiedad de navegación: un Rubro tiene MUCHOS Materiales
+public virtual ICollection<Material>? Materiales { get; set; }
 
 }

@@ -11,5 +11,9 @@ public class Material
     
     public decimal PrecioCosto { get; set;}
     public bool Eliminado { get; set; }
-
+    
+    // Propiedad de navegación: cada Material pertenece a UN Rubro
+    public virtual Rubro? Rubro { get; set; }
+    public virtual ICollection<MaterialProducto>? Productos { get; set; }
 }
+

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text.Json.Serialization;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using APIMateriales2026AguirreLautaro.Data;
@@ -41,7 +42,11 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddControllers();
+// AddJsonOptions: evita el error de "ciclo" al serializar
+// (Rubro tiene Materiales y cada Material tiene su Rubro)
+builder.Services.AddControllers().AddJsonOptions(options =>
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+    
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -66,6 +71,9 @@ if (app.Environment.IsDevelopment())
    
 }
 
+// Archivos estáticos: sirve el front desde wwwroot
+app.UseDefaultFiles();   // hace que "/" busque index.html automáticamente
+app.UseStaticFiles();    // permite servir html, js, css, imágenes...
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");

@@ -18,7 +18,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
  public DbSet<Material> Materiales { get; set; }
  public DbSet<Producto> Productos  { get; set; }
  public DbSet<Rubro> Rubros { get; set; }
-
-    // Agrega tus DbSet aquí
+ public DbSet<MaterialProducto> MaterialesProductos { get; set; }
 
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace APIMateriales2026AguirreLautaro.Migrations
 {
     /// <inheritdoc />
-    public partial class MigrationsInicial : Migration
+    public partial class Actualizamoserrores : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,29 +52,14 @@ namespace APIMateriales2026AguirreLautaro.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Materiales",
-                columns: table => new
-                {
-                    MaterialID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RubroID = table.Column<int>(type: "int", nullable: false),
-                    PrecioCosto = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Eliminado = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Materiales", x => x.MaterialID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Productos",
                 columns: table => new
                 {
                     ProductoID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Descrippcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Eliminado = table.Column<bool>(type: "bit", nullable: false)
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Eliminado = table.Column<bool>(type: "bit", nullable: false),
+                    CostoTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -201,6 +186,57 @@ namespace APIMateriales2026AguirreLautaro.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Materiales",
+                columns: table => new
+                {
+                    MaterialID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RubroID = table.Column<int>(type: "int", nullable: false),
+                    PrecioCosto = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Eliminado = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Materiales", x => x.MaterialID);
+                    table.ForeignKey(
+                        name: "FK_Materiales_Rubros_RubroID",
+                        column: x => x.RubroID,
+                        principalTable: "Rubros",
+                        principalColumn: "RubroID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MaterialesProductos",
+                columns: table => new
+                {
+                    MaterialProductoID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
+                    PrecioCostoUnitario = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    SubTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    MaterialID = table.Column<int>(type: "int", nullable: false),
+                    ProductoID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MaterialesProductos", x => x.MaterialProductoID);
+                    table.ForeignKey(
+                        name: "FK_MaterialesProductos_Materiales_MaterialID",
+                        column: x => x.MaterialID,
+                        principalTable: "Materiales",
+                        principalColumn: "MaterialID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MaterialesProductos_Productos_ProductoID",
+                        column: x => x.ProductoID,
+                        principalTable: "Productos",
+                        principalColumn: "ProductoID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -239,6 +275,21 @@ namespace APIMateriales2026AguirreLautaro.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Materiales_RubroID",
+                table: "Materiales",
+                column: "RubroID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MaterialesProductos_MaterialID",
+                table: "MaterialesProductos",
+                column: "MaterialID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MaterialesProductos_ProductoID",
+                table: "MaterialesProductos",
+                column: "ProductoID");
         }
 
         /// <inheritdoc />
@@ -260,6 +311,15 @@ namespace APIMateriales2026AguirreLautaro.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "MaterialesProductos");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
                 name: "Materiales");
 
             migrationBuilder.DropTable(
@@ -267,12 +327,6 @@ namespace APIMateriales2026AguirreLautaro.Migrations
 
             migrationBuilder.DropTable(
                 name: "Rubros");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
         }
     }
 }
