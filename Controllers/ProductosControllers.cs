@@ -60,6 +60,7 @@ public class ProductosController : ControllerBase
         {
             return BadRequest("Ya existe un producto con la misma descripción.");
         }
+        producto.CostoTotal = 0;   // un producto nuevo arranca sin composición
         _context.Productos.Add(producto);
         await _context.SaveChangesAsync();
 
@@ -136,9 +137,9 @@ public class ProductosController : ControllerBase
             return BadRequest();
         }
 
-        // _context.Entry(producto).State = EntityState.Modified;
+        _context.Entry(producto).State = EntityState.Modified;
         _context.Entry(producto).Property(p => p.CostoTotal).IsModified = false;
-
+       
         try
         {
             await _context.SaveChangesAsync();

@@ -1,15 +1,31 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\app.js",
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro - copia\\APIMateriales2026AguirreLautaro\\wwwroot\\app.js",
       "PackagePath": "staticwebassets\\app.js"
     },
     {
-      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\index.html",
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro - copia\\APIMateriales2026AguirreLautaro\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\wwwroot\\validaciones.js",
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro - copia\\APIMateriales2026AguirreLautaro\\wwwroot\\material.js",
+      "PackagePath": "staticwebassets\\material.js"
+    },
+    {
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro - copia\\APIMateriales2026AguirreLautaro\\wwwroot\\materialProducto.js",
+      "PackagePath": "staticwebassets\\materialProducto.js"
+    },
+    {
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro - copia\\APIMateriales2026AguirreLautaro\\wwwroot\\producto.js",
+      "PackagePath": "staticwebassets\\producto.js"
+    },
+    {
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro - copia\\APIMateriales2026AguirreLautaro\\wwwroot\\rubro.js",
+      "PackagePath": "staticwebassets\\rubro.js"
+    },
+    {
+      "Id": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro - copia\\APIMateriales2026AguirreLautaro\\wwwroot\\validaciones.js",
       "PackagePath": "staticwebassets\\validaciones.js"
     },
     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BAMqZilIzgw=",
+  "dgSpecHash": "RYG3vnDtuXs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro.csproj",
+  "projectFilePath": "C:\\Users\\lauti\\OneDrive\\Escritorio\\APIMateriales2026AguirreLautaro - copia\\APIMateriales2026AguirreLautaro\\APIMateriales2026AguirreLautaro.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lauti\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\lauti\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

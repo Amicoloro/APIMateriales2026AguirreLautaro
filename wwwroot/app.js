@@ -5,7 +5,7 @@ async function getRubros() {
     const response = await fetch(`${API}Rubros`);
     const rubros = await response.json(); // Convierte la respuesta en JSON
 
-    const tbody = document. getElementById("tbody-rubros");
+    const tbody = document.getElementById("tbody-rubros");
     tbody.innerHTML = ""; // Limpia el contenido previo de la tabla
 
     rubros.forEach(rubro => {
@@ -37,11 +37,11 @@ const modalRubro = new bootstrap.Modal(document.getElementById("modal-rubro"));
 document.getElementById("btn-nuevo-rubro").addEventListener("click", () => {
     document.getElementById("rubro-id").value = "";
     document.getElementById("rubro-descripcion").value = "";
-    document.getElementById("titulo-modal-rubro").textContent="Nuevo Rubro";
+    document.getElementById("titulo-modal-rubro").textContent = "Nuevo Rubro";
     modalRubro.show();
 });
 
-    
+
 async function editarRubro(id) {
     const response = await fetch(`${API}Rubros/${id}`);   // GET api/Rubros/5
     const rubro = await response.json();
@@ -60,12 +60,12 @@ document.getElementById("btn-guardar-rubro").addEventListener("click", async () 
     const descripcion = document.getElementById("rubro-descripcion").value.trim();
 
     // Validación: descripción no puede estar vacía
-    if(descripcion === "") {
+    if (descripcion === "") {
         marcarError("rubro-descripcion", "La descripción no puede estar vacía.");
         return; // Detener la ejecución si hay error
     }
 
-    const  rubro = {
+    const rubro = {
         descripcion: descripcion,
         eliminado: false
     };
@@ -73,7 +73,7 @@ document.getElementById("btn-guardar-rubro").addEventListener("click", async () 
     let response;
     if (id === "") {
         //Crear nuevo rubro
-        response = await fetch (`${API}Rubros`, {
+        response = await fetch(`${API}Rubros`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(rubro)
@@ -100,12 +100,13 @@ document.getElementById("btn-guardar-rubro").addEventListener("click", async () 
 
 function eliminarRubro(id) {
     confirmarEliminar("¿Está seguro de eliminar este rubro?", async () => {
-        await fetch(`${API}Rubros/${id}`, { method: "DELETE"
+        await fetch(`${API}Rubros/${id}`, {
+            method: "DELETE"
         });
-         getRubros(); // Actualiza la lista de rubros después de eliminar
+        getRubros(); // Actualiza la lista de rubros después de eliminar
     });
 }
-   
+
 let productosCache = [];    // productos con su composición adentro
 
 
@@ -113,19 +114,21 @@ let productosCache = [];    // productos con su composición adentro
 async function getProductos() {
     const response = await fetch(`${API}Productos`);
     const productos = await response.json();
-    productosCache = productos;        
-     
+    productosCache = productos;
 
-    const tbody = document. getElementById("tbody-productos");
+
+    const tbody = document.getElementById("tbody-productos");
     tbody.innerHTML = ""; // Limpia el contenido previo de la tabla
 
     productos.forEach(producto => {
         tbody.innerHTML += `
-                    <tr>
-                <td>${producto.productoID}</td>
-                <td>${producto.descripcion ?? ""}</td>
-                <td>$${producto.costoTotal.toFixed(2)}</td>
-                <td>
+            <tr>
+                 <td class="text-center">${producto.productoID}</td>
+                 <td>${producto.descripcion ?? ""}</td>
+                 <td class="text-end">$${producto.costoTotal.toFixed(2)}</td>
+                 <td class="text-end">$${producto.precioVenta.toFixed(2)}</td>
+                 <td class="text-end">${producto.porcentajeGanancia.toFixed(2)}%</td>
+                 <td class="text-center">
                     <button class="btn btn-sm btn-warning" onclick="editarProducto(${producto.productoID})">
                         <i class="bi bi-pencil"></i>
                     </button>
@@ -150,10 +153,12 @@ const modalProducto = new bootstrap.Modal(document.getElementById("modal-product
 
 //Boton Agregar producto (crear producto)
 document.getElementById("btn-nuevo-producto").addEventListener("click", () => {
+    limpiarError("producto-descripcion");
+    limpiarError("producto-costo");
     document.getElementById("producto-id").value = "";
     document.getElementById("producto-descripcion").value = "";
-    document.getElementById("producto-costo").value = "";
-    document.getElementById("titulo-modal-producto").textContent="Nuevo Producto";
+    // document.getElementById("producto-costo").value = "";
+    document.getElementById("titulo-modal-producto").textContent = "Nuevo Producto";
     modalProducto.show();
 });
 
@@ -164,6 +169,8 @@ async function editarProducto(id) {
     document.getElementById("producto-id").value = producto.productoID;
     document.getElementById("producto-descripcion").value = producto.descripcion ?? "";
     document.getElementById("producto-costo").value = producto.costoTotal.toFixed(2);
+    document.getElementById("producto-ganancia").value = producto.porcentajeGanancia.toFixed(2);
+    document.getElementById("producto-precioVenta").value = producto.precioVenta.toFixed(2);
     document.getElementById("titulo-modal-producto").textContent = "Editar Producto";
     modalProducto.show();
 }
@@ -172,29 +179,29 @@ async function editarProducto(id) {
 document.getElementById("btn-guardar-producto").addEventListener("click", async () => {
     const id = document.getElementById("producto-id").value;
     const descripcion = document.getElementById("producto-descripcion").value.trim();
-    const costoTotal = parseFloat(document.getElementById("producto-costo").value);
+    // const costoTotal = parseFloat(document.getElementById("producto-costo").value);
 
     // Validación: descripción no puede estar vacía
     if (descripcion === "") {
         marcarError("producto-descripcion", "La descripción es obligatoria");
-        return;   
+        return;
     }
 
-    if (isNaN(costoTotal) || costoTotal <= 0) {
-        marcarError("producto-costo", "El costo total debe ser mayor a cero");
-        return;   
-    }
+    // if (isNaN(costoTotal) || costoTotal <= 0) {
+    //     marcarError("producto-costo", "El costo total debe ser mayor a cero");
+    //     return;   
+    // }
 
-    const  producto = {
+    const producto = {
         descripcion: descripcion,
-        costoTotal: costoTotal,
+        porcentajeGanancia: parseFloat(document.getElementById("producto-ganancia").value) || 0,
+        precioVenta: parseFloat(document.getElementById("producto-precioVenta").value) || 0,
         eliminado: false
     };
-
     let response;
     if (id === "") {
         //Crear nuevo producto
-        response = await fetch (`${API}Productos`, {
+        response = await fetch(`${API}Productos`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(producto)
@@ -219,6 +226,30 @@ document.getElementById("btn-guardar-producto").addEventListener("click", async 
     getProductos();// Actualiza la lista de productos después de guardar
 });
 
+// Función para calcular el precio de venta basado en el costo y la ganancia
+function calcularPrecioVenta() {
+    const costo = parseFloat(document.getElementById("producto-costo").value) || 0;
+    const ganancia = parseFloat(document.getElementById("producto-ganancia").value) || 0;
+
+    const precio = costo + (costo * ganancia / 100);
+    document.getElementById("producto-precioVenta").value = precio.toFixed(2);
+}
+
+//calcular el porcentaje de ganancia basado en el costo y el precio de venta
+function calcularPorcentajeGanancia() {
+    const precio = parseFloat(document.getElementById("producto-precioVenta").value) || 0;
+    const costo = parseFloat(document.getElementById("producto-costo").value) || 0;
+
+    if (costo === 0) {
+        document.getElementById("producto-ganancia").value = 0;
+        return;   // no se puede sacar un % sobre un costo de cero
+    }
+
+    const ganancia = ((precio - costo) / costo) * 100;
+    document.getElementById("producto-ganancia").value = ganancia.toFixed(2);
+}
+document.getElementById("producto-ganancia").addEventListener("input", calcularPrecioVenta);
+document.getElementById("producto-precioVenta").addEventListener("input", calcularPorcentajeGanancia);
 
 function eliminarProducto(id) {
     confirmarEliminar("¿Está seguro de eliminar este producto?", async () => {
@@ -302,9 +333,9 @@ document.getElementById("btn-guardar-material").addEventListener("click", async 
         return;
     }
     if (isNaN(precioCosto) || precioCosto <= 0) {
-    marcarError("material-precio", "El precio debe ser mayor a cero");
-    return;
-}
+        marcarError("material-precio", "El precio debe ser mayor a cero");
+        return;
+    }
 
     const material = {
         descripcion: descripcion,

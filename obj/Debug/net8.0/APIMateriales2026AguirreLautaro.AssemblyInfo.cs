@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("APIMateriales2026AguirreLautaro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5885ddc9511b07f11b77f35bb7b93423614a726b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e28a926d0d885a781f5ac0c9b42d1a70b6a174a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("APIMateriales2026AguirreLautaro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APIMateriales2026AguirreLautaro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

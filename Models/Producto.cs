@@ -11,6 +11,10 @@ public class Producto
     public bool Eliminado { get; set; }
     public decimal CostoTotal { get; set; }
 
+    public decimal PrecioVenta { get; set; }
+
+    public decimal PorcentajeGanancia { get; set; }
+
     public virtual ICollection<MaterialProducto>? Materiales { get; set; }
 
 }

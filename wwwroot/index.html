@@ -103,10 +103,12 @@
                 <table class="table table-striped table-hover align-middle">
                     <thead class="table-dark">
                         <tr>
-                            <th style="width:80px">ID</th>
+                            <th style="width:80px" class="text-center">ID</th>
                             <th>Descripción</th>
-                            <th style="width:140px">Costo Total</th>
-                            <th style="width:160px">Acciones</th>
+                            <th style="width:140px" class="text-end">Costo Total</th>
+                            <th style="width:160px" class="text-end">Precio Venta</th>
+                            <th style="width:160px" class="text-end">% Ganancia</th>
+                            <th style="width:160px" class="text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="tbody-productos"></tbody>
@@ -196,8 +198,20 @@
                     <!-- Costo total -->
                     <div class="mb-3">
                         <label class="form-label">Costo Total</label>
-                        <input type="number" class="form-control" id="producto-costo" min="0" step="0.01">
-                        <div class="invalid-feedback" id="error-producto-costo"></div>
+                        <input type="text" class="form-control" id="producto-costo" disabled>
+                        <!-- <div class="invalid-feedback" id="error-producto-costo"></div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Porcentaje de ganancia</label>
+                            <input type="number" class="form-control" id="producto-ganancia" min="0" step="0.01">
+                            <div class="invalid-feedback" id="error-producto-ganancia"></div>
+                        </div>
+                        <div class="col mb-3">
+                            <label class="form-label" for="producto-precioVenta">Precio de venta</label>
+                            <input type="text" class="form-control" id="producto-precioVenta" min="0" step="0.01">
+                            <div class="invalid-feedback" id="error-producto-precioVenta"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -284,6 +298,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="validaciones.js"></script>
     <script src="app.js"></script>
+    <!-- <script src="rubro.js"></script>
+    <script src="material.js"></script>
+    <script src="producto.js"></script>
+    <script src="materialProducto.js"></script> -->
 </body>
 
 </html>
